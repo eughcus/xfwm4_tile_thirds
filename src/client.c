@@ -3321,45 +3321,57 @@ clientNewTileSize (Client *c, XWindowChanges *wc, GdkRectangle *rect, tilePositi
             wc->height = full_h / 2 - frameExtentTop (c) - frameExtentBottom (c);
             break;
         case TILE_DOWN:
-            wc->x = full_x + frameExtentLeft (c);
-            wc->y = full_y + full_h / 2 + frameExtentTop (c);
-            wc->width = full_w - frameExtentLeft (c) - frameExtentRight (c);
-            wc->height = full_h - full_h / 2 - frameExtentTop (c) - frameExtentBottom (c);
+            wc->x = full_x + full_w / 3 + frameExtentLeft (c);
+            wc->y = full_y + frameExtentTop (c);
+            wc->width = full_w / 3 - frameExtentLeft (c) - frameExtentRight (c);
+            wc->height = full_h - frameExtentTop (c) - frameExtentBottom (c);
             break;
         case TILE_LEFT:
             wc->x = full_x + frameExtentLeft (c);
             wc->y = full_y + frameExtentTop (c);
-            wc->width = full_w / 2 - frameExtentLeft (c) - frameExtentRight (c);
+            wc->width = full_w / 3 - frameExtentLeft (c) - frameExtentRight (c);
             wc->height = full_h - frameExtentTop (c) - frameExtentBottom (c);
             break;
         case TILE_RIGHT:
-            wc->x = full_x + full_w / 2 + frameExtentLeft (c);
+            wc->x = full_x + full_w * 2 / 3 + frameExtentLeft (c);
             wc->y = full_y + frameExtentTop (c);
-            wc->width = full_w - full_w / 2 - frameExtentLeft (c) - frameExtentRight (c);
+            wc->width = full_w - full_w  * 2/ 3 - frameExtentLeft (c) - frameExtentRight (c);
             wc->height = full_h - frameExtentTop (c) - frameExtentBottom (c);
             break;
         case TILE_DOWN_LEFT:
             wc->x = full_x + frameExtentLeft (c);
-            wc->y = full_y + full_h / 2 + frameExtentTop (c);
-            wc->width = full_w / 2 - frameExtentLeft (c) - frameExtentRight (c);
-            wc->height = full_h - full_h / 2 - frameExtentTop (c) - frameExtentBottom (c);
+            wc->y = full_y  + frameExtentTop (c);
+            wc->width = full_w * 2 / 3 - frameExtentLeft (c) - frameExtentRight (c);
+            wc->height = full_h - frameExtentTop (c) - frameExtentBottom (c);
             break;
         case TILE_DOWN_RIGHT:
-            wc->x = full_x + full_w /2 + frameExtentLeft (c);
+            wc->x = full_x + full_w / 3  + frameExtentLeft (c);
+            wc->y = full_y + frameExtentTop (c);
+            wc->width = full_w - full_w / 3 - frameExtentLeft (c) - frameExtentRight (c);
+            wc->height = full_h - frameExtentTop (c) - frameExtentBottom (c);
+            break;
+        case TILE_DOWN_LEFT_CORNER:
+            wc->x = full_x + frameExtentLeft (c);
             wc->y = full_y + full_h / 2 + frameExtentTop (c);
-            wc->width = full_w - full_w / 2 - frameExtentLeft (c) - frameExtentRight (c);
+            wc->width = full_w / 3 - frameExtentLeft (c) - frameExtentRight (c);
             wc->height = full_h - full_h / 2 - frameExtentTop (c) - frameExtentBottom (c);
             break;
-        case TILE_UP_LEFT:
+        case TILE_DOWN_RIGHT_CORNER:
+            wc->x = full_x + full_w * 2 / 3 + frameExtentLeft (c);
+            wc->y = full_y + full_h / 2 + frameExtentTop (c);
+            wc->width = full_w - full_w * 2 / 3 - frameExtentLeft (c) - frameExtentRight (c);
+            wc->height = full_h - full_h / 2 - frameExtentTop (c) - frameExtentBottom (c);
+            break;
+        case TILE_UP_LEFT_CORNER:
             wc->x = full_x + frameExtentLeft (c);
             wc->y = full_y + frameExtentTop (c);
-            wc->width = full_w / 2 - frameExtentLeft (c) - frameExtentRight (c);
+            wc->width = full_w / 3 - frameExtentLeft (c) - frameExtentRight (c);
             wc->height = full_h / 2 - frameExtentTop (c) - frameExtentBottom (c);
             break;
-        case TILE_UP_RIGHT:
-            wc->x = full_x + full_w /2 + frameExtentLeft (c);
+        case TILE_UP_RIGHT_CORNER:
+            wc->x = full_x + full_w * 2/ 3 + frameExtentLeft (c);
             wc->y = full_y + frameExtentTop (c);
-            wc->width = full_w - full_w / 2 - frameExtentLeft (c) - frameExtentRight (c);
+            wc->width = full_w - full_w * 2 / 3 - frameExtentLeft (c) - frameExtentRight (c);
             wc->height = full_h / 2 - frameExtentTop (c) - frameExtentBottom (c);
             break;
         default:
